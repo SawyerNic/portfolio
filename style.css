@@ -1,0 +1,21 @@
+
+body {
+    font-family: 'IBM Plex Mono';
+    font-weight: 700;
+    font-style: bold;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+}
+
+#nav-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#nav-container > * {
+    margin-left: 20px;    
+}

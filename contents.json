@@ -1,0 +1,111 @@
+{
+  "header": {
+    "navigation": {
+      "logo": "Personal Brand",
+      "menu": ["Home", "About", "Projects", "Experience", "Contact"],
+      "resumeButton": "Resume Download"
+    }
+  },
+  "heroSection": {
+    "name": "Sawyer Nicastro",
+    "title": "Software Engineer",
+    "tagline": "Crafting, contributing and coding excellent projects",
+    "callToActionButtons": ["View My Work", "Get In Touch"]
+  },
+  "aboutMe": {
+    "professionalSummary": "I am an experienced software engineer with four years of experience developing applications in a multitude of languages. I also have experience using several industry standard game engines such as Unity and Unreal Engine and I have a strong foundation in creative softwares as well.",
+    "whatIDo": "I am a full stack developer that specializes in web development. My interests also include mobile and multi platform app development as well as machine learning. I’ve contributed to open source projects from organizations such as Microsoft and I have a strong passion for the open source community.",
+    "background": "I have a bachelors of science degree in New Media Interactive Development from RIT. My love of programming started when I took AP computer science in high school. Ever since then I’ve taken every opportunity I could to learn more about becoming a better programmer.",
+    "currentFocus": "I’m activly learning how to utilize AI agents using open source projects as well as self hosting from a virtual machine.",
+    "personalInterests": "My personal hobbies include traveling and learning new languages. I'm currently learning Spanish and Italian."
+  },
+  "technicalSkills": {
+    "programmingLanguages": {
+      "primary": ["JavaScript", "C#", "Dart"],
+      "secondary": ["Python", "Java", "Typescript"]
+    },
+    "frameworksAndLibraries": {
+      "frontend": ["React", "Angular"],
+      "backend": ["Node.js", "Django", "Spring"],
+      "mobile": ["Flutter", "React Native"]
+    },
+    "toolsAndTechnologies": {
+      "versionControl": ["Git", "GitHub/GitLab"],
+      "databases": ["SQL", "NoSQL options"],
+      "cloudDevOps": ["AWS", "Docker", "CI/CD"],
+      "other": ["Testing frameworks", "Design tools"]
+    }
+  },
+  "projects": [
+    {
+      "title": "Project Title",
+      "description": "Brief Description (2-3 sentences)",
+      "technologiesUsed": ["Technology1", "Technology2"],
+      "keyFeatures": ["Feature1", "Feature2"],
+      "links": {
+        "liveDemo": "Live Demo URL",
+        "sourceCode": "Source Code URL"
+      },
+      "screenshotsOrDemo": "Screenshot/Demo GIF URL",
+      "challengesOvercome": "Challenges Overcome",
+      "whatYouLearned": "What You Learned"
+    }
+  ],
+  "experience": {
+    "professionalExperience": [
+      {
+        "jobTitle": "Job Title",
+        "companyName": "Company Name",
+        "duration": "Month Year - Month Year",
+        "location": "City, State or Remote",
+        "keyAchievements": ["Achievement1", "Achievement2", "Achievement3"]
+      }
+    ],
+    "internships": [
+      {
+        "jobTitle": "Internship Title",
+        "companyName": "Company Name",
+        "duration": "Month Year - Month Year",
+        "location": "City, State or Remote",
+        "keyAchievements": ["Achievement1", "Achievement2", "Achievement3"]
+      }
+    ]
+  },
+  "education": {
+    "degree": "Degree",
+    "institution": "University/College Name",
+    "graduation": "Month Year",
+    "relevantCoursework": ["Course1", "Course2"],
+    "academicProjects": ["Project1", "Project2"]
+  },
+  "additionalSections": {
+    "certifications": [
+      {
+        "name": "Certification Name",
+        "organization": "Issuing Organization",
+        "date": "Date"
+      }
+    ],
+    "blogWriting": ["Link1", "Link2"],
+    "openSourceContributions": ["Project1", "Project2"],
+    "achievements": ["Hackathon1", "Competition1", "Award1"]
+  },
+  "contactSection": {
+    "email": "professional@example.com",
+    "linkedin": "LinkedIn Profile URL",
+    "github": "GitHub Profile URL",
+    "location": "City, State/Country",
+    "contactForm": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message"
+    }
+  },
+  "footer": {
+    "copyrightNotice": "Copyright Notice",
+    "quickNavigationLinks": ["Home", "About", "Projects", "Experience", "Contact"],
+    "socialMediaIcons": ["Icon1", "Icon2"],
+    "credits": "Built with Credits"
+  }
+}
