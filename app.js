@@ -14,16 +14,35 @@ const app = express();
 app.use(cors());
 
 // Connect to database
-mongoose.connect(dbURI).catch((err) => {
-    console.log('Could not connect to database');
-    throw err;
+mongoose.connect(dbURI, { useUnifiedTopology: true })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((err) => {
+        console.error('Could not connect to database:', err.message);
+        process.exit(1);
+    });
+
+mongoose.connection.on('error', err => {
+    console.error('MongoDB connection error:', err);
 });
 
-const Content = mongoose.model('Collection', new mongoose.Schema({}, { strict: false }), 'Collection');
+
+
+const Content = mongoose.model('Collection', new mongoose.Schema({}, { strict: false }), 'Content');
 
 app.use(express.json());
 app.use(cors());
 app.use(express.json()); // <-- Add this line here!
+
+app.get('/api/collections', async (req, res) => {
+    try {
+        const collections = await mongoose.connection.db.listCollections().toArray();
+        res.json(collections.map(col => col.name));
+    } catch (err) {
+        console.error('Error listing collections:', err);
+        res.status(500).json({ error: 'Failed to list collections' });
+    }
+});
+
 
 app.get('/api/contents', async (req, res) => {
     console.log('requesting');
