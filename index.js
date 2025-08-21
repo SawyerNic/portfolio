@@ -1,3 +1,4 @@
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // Whole script is wrapped in this so that it runs after the dom is loaded.
 document.addEventListener('DOMContentLoaded', function () {

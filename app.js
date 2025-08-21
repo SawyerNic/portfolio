@@ -43,7 +43,6 @@ app.get('/api/collections', async (req, res) => {
     }
 });
 
-
 app.get('/api/contents', async (req, res) => {
     console.log('requesting');
     await Content.findByIdAndUpdate(
@@ -52,6 +51,20 @@ app.get('/api/contents', async (req, res) => {
     )
     const doc = await Content.findOne(); // Adjust query as needed
     res.json(doc);
+});
+
+app.post('/api/contents', async (req, res) => {
+    try {
+        const updated = await Content.findByIdAndUpdate(
+            '686c8a7a19b92f655a1c5823',
+            req.body,
+            { new: true, upsert: true }
+        );
+        res.json(updated);
+    } catch (err) {
+        console.error('Error writing object:', err);
+        res.status(500).json({ error: 'Failed to write object' });
+    }
 });
 
 app.post('/api/login', (req, res) => {

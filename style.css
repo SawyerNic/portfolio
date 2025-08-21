@@ -1,21 +1,124 @@
+:root {
+  /* Orange is default */
+  --button-bg: var(--orange-bg);
+  --button-bg-hover: var(--orange-bg-hover);
+  --button-bg-active: var(--orange-bg-active);
+  --button-border: var(--orange-border);
+  --button-shadow: var(--orange-shadow);
+  --button-text: var(--orange-text);
+  --button-text-hover: var(--orange-text-hover);
 
-body {
-    font-family: 'IBM Plex Mono';
-    font-weight: 700;
-    font-style: bold;
+  /* Blue Theme */
+  --blue-bg: #e1ecf4;
+  --blue-bg-hover: #b3d3ea;
+  --blue-bg-active: #a0c7e4;
+  --blue-border: #7aa7c7;
+  --blue-shadow: rgba(255, 255, 255, .7);
+  --blue-text: #39739d;
+  --blue-text-hover: #2c5777;
+
+  /* Green Theme */
+  --green-bg: #e4f4e1;
+  --green-bg-hover: #bdeab3;
+  --green-bg-active: #a4e4a0;
+  --green-border: #7ac77a;
+  --green-shadow: rgba(255, 255, 255, .7);
+  --green-text: #399d6b;
+  --green-text-hover: #2c7757;
+
+  /* Purple Theme */
+  --purple-bg: #f0e1ec;
+  --purple-bg-hover: #e3b3d3;
+  --purple-bg-active: #dca0c7;
+  --purple-border: #b77aa7;
+  --purple-shadow: rgba(255, 255, 255, .7);
+  --purple-text: #8d397d;
+  --purple-text-hover: #6b2c57;
+
+  /* Orange Theme */
+  --orange-bg: #f4ede1;
+  --orange-bg-hover: #ead3b3;
+  --orange-bg-active: #e4c7a0;
+  --orange-border: #c7a77a;
+  --orange-shadow: rgba(255, 255, 255, .7);
+  --orange-text: #9d6b39;
+  --orange-text-hover: #77572c;
 }
 
-#header {
-    display: flex;
-    flex-direction: row;
+/* Theme modifiers: override the --button-* variables */
+.buttonOne.blue {
+  --button-bg: var(--blue-bg);
+  --button-bg-hover: var(--blue-bg-hover);
+  --button-bg-active: var(--blue-bg-active);
+  --button-border: var(--blue-border);
+  --button-shadow: var(--blue-shadow);
+  --button-text: var(--blue-text);
+  --button-text-hover: var(--blue-text-hover);
+}
+.buttonOne.green {
+  --button-bg: var(--green-bg);
+  --button-bg-hover: var(--green-bg-hover);
+  --button-bg-active: var(--green-bg-active);
+  --button-border: var(--green-border);
+  --button-shadow: var(--green-shadow);
+  --button-text: var(--green-text);
+  --button-text-hover: var(--green-text-hover);
+}
+.buttonOne.purple {
+  --button-bg: var(--purple-bg);
+  --button-bg-hover: var(--purple-bg-hover);
+  --button-bg-active: var(--purple-bg-active);
+  --button-border: var(--purple-border);
+  --button-shadow: var(--purple-shadow);
+  --button-text: var(--purple-text);
+  --button-text-hover: var(--purple-text-hover);
+}
+.buttonOne.orange {
+  --button-bg: var(--orange-bg);
+  --button-bg-hover: var(--orange-bg-hover);
+  --button-bg-active: var(--orange-bg-active);
+  --button-border: var(--orange-border);
+  --button-shadow: var(--orange-shadow);
+  --button-text: var(--orange-text);
+  --button-text-hover: var(--orange-text-hover);
 }
 
-#nav-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+/* Base buttonOne styles (now uses only --button-* variables) */
+.buttonOne {
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  background-color: var(--button-bg);
+  border: 1px solid var(--button-border);
+  color: var(--button-text);
+  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.60), 0 1.5px 0 0 inset var(--blue-shadow);
+  transition: box-shadow 0.05s, transform 0.05s;}
+
+.buttonOne:hover,
+.buttonOne:focus {
+  background-color: var(--button-bg-hover);
+  color: var(--button-text-hover);
 }
 
-#nav-container > * {
-    margin-left: 20px;    
+.buttonOne:active {
+  background-color: var(--button-bg-active);
+  color: var(--button-text-hover);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.08);
+  transform: translateY(2px) translateX(2px);
 }

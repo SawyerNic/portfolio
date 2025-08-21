@@ -1,20 +1,62 @@
 details {
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  padding: 0.5em 0.5em 0;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: 0.5em 0.5em;
 }
 
 summary {
-  font-weight: bold;
-  margin: -0.5em -0.5em 0;
-  padding: 0.5em;
+    font-weight: bold;
+    margin: -0.5em -0.5em 0;
+    padding: 0.5em;
 }
 
 details[open] {
-  padding: 0.5em;
+    padding: 0.5em;
+    margin-bottom: 10px;
+
 }
 
 details[open] summary {
-  border-bottom: 1px solid #aaa;
-  margin-bottom: 0.5em;
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 0.5em;
 }
+
+textarea {
+    width: fill;
+    min-height: 50px;
+    /* Initial height */
+    resize: none;
+    /* Disable manual resizing */
+    overflow-y: hidden;
+    /* Hide scrollbar */
+    box-sizing: border-box;
+    /* Include padding in width/height calculations */
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+#editList {
+    width: 50vw;
+    position: absolute;
+    left: 25vw;
+}
+
+#addButton, #subtractButton {
+    float: right;
+    margin-left: .2vw;
+}
+
+#textAndButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5em; /* Optional: space between textarea and button */
+}
+
+#textAndButton textarea {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+}
+
+
