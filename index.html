@@ -20,8 +20,13 @@
 
 <body>
     <div id="header" style="display:flex;">
-        <img id="logo" src="img\black_on_white.png" alt="logo" width="100" height="100">
-        <nav style="display: flex; align-items: center; gap:1em; margin-left: auto; margin-right: 2vw;">
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+        <model-viewer id="logo" src="https://rawcdn.githack.com/SawyerNic/portfolio/8fbf7ef97218312f4ee4851be6b908dcc27df6af/models/sawyers-head.glb" alt="3D Logo"
+            style="margin-top:10px; width:100px; height:100px; background:transparent;" auto-rotate   rotation-per-second="60deg"
+            disable-zoom></model-viewer>
+
+        <nav style="display: flex; align-items: center; gap:1em; margin-left: auto; margin-right:2vw;">
             <button type="button" class="buttonOne orange">Projects</button>
             <button type="button" class="buttonOne green">Skills</button>
             <button type="button" class="buttonOne blue">Blog</button>
@@ -42,7 +47,7 @@
         </div>
     </div>
 
-    
+
 
     <pre id="dbContents" style="background:#f4f4f4; padding:1em; border-radius:8px; margin:2em 0;"></pre>
 
