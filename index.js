@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username: user, password: pass })
-        })
+        }) 
             .then(res => {
                 if (!res.ok) throw new Error('Invalid credentials');
                 return res.json();

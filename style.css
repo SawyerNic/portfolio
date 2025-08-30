@@ -1,4 +1,30 @@
+body {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 8px;
+  }
+}
+
+
 :root {
+    /* Yellow Theme */
+  --yellow-bg: #fff9e1;
+  --yellow-bg-hover: #fff3b3;
+  --yellow-bg-active: #ffeaa0;
+  --yellow-border: #c7b77a;
+  --yellow-shadow: rgba(255, 255, 255, .7);
+  --yellow-text: #9d8b39;
+  --yellow-text-hover: #776b2c;
+
   /* Orange is default */
   --button-bg: var(--orange-bg);
   --button-bg-hover: var(--orange-bg-hover);
@@ -46,6 +72,16 @@
 }
 
 /* Theme modifiers: override the --button-* variables */
+.buttonOne.yellow {
+  --button-bg: var(--yellow-bg);
+  --button-bg-hover: var(--yellow-bg-hover);
+  --button-bg-active: var(--yellow-bg-active);
+  --button-border: var(--yellow-border);
+  --button-shadow: var(--yellow-shadow);
+  --button-text: var(--yellow-text);
+  --button-text-hover: var(--yellow-text-hover);
+}
+
 .buttonOne.blue {
   --button-bg: var(--blue-bg);
   --button-bg-hover: var(--blue-bg-hover);
@@ -55,6 +91,7 @@
   --button-text: var(--blue-text);
   --button-text-hover: var(--blue-text-hover);
 }
+
 .buttonOne.green {
   --button-bg: var(--green-bg);
   --button-bg-hover: var(--green-bg-hover);
@@ -64,6 +101,7 @@
   --button-text: var(--green-text);
   --button-text-hover: var(--green-text-hover);
 }
+
 .buttonOne.purple {
   --button-bg: var(--purple-bg);
   --button-bg-hover: var(--purple-bg-hover);
@@ -73,6 +111,7 @@
   --button-text: var(--purple-text);
   --button-text-hover: var(--purple-text-hover);
 }
+
 .buttonOne.orange {
   --button-bg: var(--orange-bg);
   --button-bg-hover: var(--orange-bg-hover);
@@ -104,11 +143,12 @@
   touch-action: manipulation;
   vertical-align: baseline;
   white-space: nowrap;
-  background-color: var(--button-bg);
+  background-color: var(--button-bg-hover);
   border: 1px solid var(--button-border);
   color: var(--button-text);
   box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.60), 0 1.5px 0 0 inset var(--blue-shadow);
-  transition: box-shadow 0.05s, transform 0.05s;}
+  transition: box-shadow 0.05s, transform 0.05s;
+}
 
 .buttonOne:hover,
 .buttonOne:focus {
@@ -119,6 +159,18 @@
 .buttonOne:active {
   background-color: var(--button-bg-active);
   color: var(--button-text-hover);
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.08);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
   transform: translateY(2px) translateX(2px);
+}
+
+.CodeFont {
+  font-family: 'Google Sans Code', monospace !important;
+  font-weight: 300;
+}
+
+.google-sans-code {
+  font-family: "Google Sans Code", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
