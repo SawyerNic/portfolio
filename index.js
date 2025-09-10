@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    // Fetch and display DB contents
+    // Fetch and display DB contents 
     fetch('http://localhost:3000/api/contents')
         .then(res => res.json())
         .then(data => {

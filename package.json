@@ -22,7 +22,10 @@
     "cors": "^2.8.5",
     "dotenv": "^17.1.0",
     "express": "^5.1.0",
+    "favicon": "^0.0.2",
     "lodash": "^4.17.21",
-    "mongoose": "^8.16.2"
+    "mongoose": "^8.16.2",
+    "serve": "^14.2.5",
+    "serve-favicon": "^2.5.1"
   }
 }

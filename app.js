@@ -3,6 +3,7 @@ require('dotenv').config();
 const path = require('path');
 
 const express = require('express');
+var favicon = require('serve-favicon')
 const mongoose = require('mongoose');
 const cors = require('cors');
 
@@ -12,6 +13,8 @@ const dbURI = process.env.MONGODB_URI;
 
 const app = express();
 app.use(cors());
+app.use(favicon(path.join(__dirname, 'favicon.ico')))
+
 
 // Connect to database
 mongoose.connect(dbURI, { useUnifiedTopology: true })
