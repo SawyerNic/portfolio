@@ -2,7 +2,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Get the canvas element and context
     const canvas = document.getElementById('myCanvas');
+
+
+    const side = Math.max(window.innerWidth, window.innerHeight);
+    canvas.width = side;
+    canvas.height = side;
+    canvas.style.width = side + 'px';
+    canvas.style.height = side + 'px';
+
+
+
     const ctx = canvas.getContext('2d');
+
+
 
     ctx.fillStyle = 'hsl(242, 100%, 12%)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -10,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
     ctx.globalCompositeOperation = 'screen'; // or 'multiply', 'screen', etc.
 
     let drawSplotch = (x, y, color) => {
-        let grad = ctx.createRadialGradient(x, y, 0, x, y, 200);
+        let grad = ctx.createRadialGradient(x, y, 0, x, y, 50);
         grad.addColorStop(0, color);
         grad.addColorStop(1, 'transparent');
         ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillRect(x - 100, y - 100, x + 50, y + 50);
     }
 
     let federalBlue = 'hsl(232, 100%, 21%)';
@@ -27,6 +39,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Reset composite mode
     ctx.globalCompositeOperation = 'source-over';
 
+
+    function animate() {
+
+    }
+
+    animate();
 
     // end DOMContentLoaded
 }); 
