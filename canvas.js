@@ -1,7 +1,7 @@
 
 let anomolies = [];
 let animationSpeed = .001;
-const anomolyCount = 5;
+const anomolyCount = 6;
 let maxArcSize = 2500;
 let minArcSize = 600;
 let maxOpacity = 1;
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const v = new velocity(getRandomArbitrary(.2, 4) * randomPositiveOrNegative(), getRandomArbitrary(.2, 4) * randomPositiveOrNegative());
             const a = new anomoly(p, d, v, getRandomArbitrary(minArcSize, maxArcSize));
             a.target = new position(getRandomArbitrary(100, canvas.width - 200), getRandomArbitrary(100, canvas.height - 200))
-            a.color = `hsl(${Math.floor(290 - getRandomArbitrary(0, 110))}, 100%, ${Math.floor(25 - getRandomArbitrary(0, 22))}%)`;
+            a.color = `hsl(${Math.floor(290 - getRandomArbitrary(0, 110))}, 100%, ${Math.floor(28 - getRandomArbitrary(0, 22))}%)`;
             anomolies.push(a);
         }
 
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // loop through all of the anomolies and adjust the direction
 
         // Background
-        ctx.fillStyle = 'hsl(242, 100%, 12%)';
+        ctx.fillStyle = 'hsl(242, 100.00%, 5.70%)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         ctx.globalCompositeOperation = 'screen'; // or 'multiply', 'screen', etc.
