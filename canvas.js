@@ -1,9 +1,9 @@
 
 let anomolies = [];
 let animationSpeed = .001;
-const anomolyCount = 10;
+const anomolyCount = 5;
 let maxArcSize = 2500;
-let minArcSize = 400;
+let minArcSize = 600;
 let maxOpacity = 1;
 let minOpacity = .3;
 let colorRange = 30;
@@ -145,9 +145,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const ctx = canvas.getContext('2d');
 
     const draw = (elapsed) => {
-
-        const speed = elapsed;
-
         // loop through all of the anomolies and adjust the direction
 
         // Background
@@ -155,9 +152,6 @@ document.addEventListener('DOMContentLoaded', function () {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         ctx.globalCompositeOperation = 'screen'; // or 'multiply', 'screen', etc.
-
-
-
 
         anomolies.forEach(anom => {
 
