@@ -1,13 +1,13 @@
 
 let anomolies = [];
 let animationSpeed = .0008;
-const anomolyCount = 6;
-let maxArcSize = 300;
-let minArcSize = 150;
+const anomolyCount = 5;
+let maxArcSize = 600;
+let minArcSize = 250;
 let maxOpacity = 1;
 let minOpacity = .3;
 let colorRange = 30;
-let canvasSize = 600;
+let canvasSize = 800;
 
 
 class position {
@@ -83,13 +83,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const canvas = document.getElementById('myCanvas');
 
     const max = Math.max(window.innerWidth, window.innerHeight);
+    
 
     const side = canvasSize;
 
-    canvas.width = side;
-    canvas.height = side;
-    canvas.style.width = max + 'px';
-    canvas.style.height = max + 'px';
+    canvas.width = (window.innerWidth/max)*side;
+    canvas.height = (window.innerHeight/max)*side;
+
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height =window.innerHeight + 'px';
+
 
 
     //populate the anomolies array
@@ -213,10 +216,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function resizeCanvas() {
-        const side = Math.max(window.innerWidth, window.innerHeight);
-        canvas.style.width = side + 'px';
-        canvas.style.height = side + 'px';
-        draw(0);
+            const max = Math.max(window.innerWidth, window.innerHeight);
+    
+
+    const side = canvasSize;
+
+    canvas.width = (window.innerWidth/max)*side;
+    canvas.height = (window.innerHeight/max)*side;
+
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height =window.innerHeight + 'px';
     }
 
     window.addEventListener('resize', resizeCanvas);
