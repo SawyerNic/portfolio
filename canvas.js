@@ -1,12 +1,13 @@
 
 let anomolies = [];
-let animationSpeed = .001;
+let animationSpeed = .0008;
 const anomolyCount = 6;
-let maxArcSize = 2500;
-let minArcSize = 600;
+let maxArcSize = 300;
+let minArcSize = 150;
 let maxOpacity = 1;
 let minOpacity = .3;
 let colorRange = 30;
+let canvasSize = 600;
 
 
 class position {
@@ -81,21 +82,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get the canvas element and context
     const canvas = document.getElementById('myCanvas');
 
-    const side = Math.max(window.innerWidth, window.innerHeight);
+    const max = Math.max(window.innerWidth, window.innerHeight);
+
+    const side = canvasSize;
+
     canvas.width = side;
     canvas.height = side;
-    canvas.style.width = side + 'px';
-    canvas.style.height = side + 'px';
+    canvas.style.width = max + 'px';
+    canvas.style.height = max + 'px';
 
 
     //populate the anomolies array
     for (let i = 0; i < anomolyCount; i++) {
         for (let j = 0; j < anomolyCount; j++) {
-            const p = new position(getRandomArbitrary(100, canvas.width - 200), getRandomArbitrary(100, canvas.height - 200));
+            const p = new position(getRandomArbitrary(0, canvas.width), getRandomArbitrary(0, canvas.height))
             const d = Math.random();
             const v = new velocity(getRandomArbitrary(.2, 4) * randomPositiveOrNegative(), getRandomArbitrary(.2, 4) * randomPositiveOrNegative());
             const a = new anomoly(p, d, v, getRandomArbitrary(minArcSize, maxArcSize));
-            a.target = new position(getRandomArbitrary(100, canvas.width - 200), getRandomArbitrary(100, canvas.height - 200))
+            a.target = new position(getRandomArbitrary(0, canvas.width), getRandomArbitrary(0, canvas.height))
             a.color = `hsl(${Math.floor(285 - getRandomArbitrary(0, 110))}, 100%, ${Math.floor(28 - getRandomArbitrary(0, 22))}%)`;
             anomolies.push(a);
         }
@@ -108,8 +112,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function drawDot(x, y) {
         // Draw the edge dot
         ctx.beginPath();
-        ctx.arc(x, y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = 'red';
+        ctx.arc(x, y, 2, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
         ctx.fill();
         ctx.closePath();
     }
@@ -122,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ctx.moveTo(sx, sy);
         ctx.lineTo(ex, ey);
         ctx.strokeStyle = color;
-        ctx.lineWidth = 2; // thickness in pixels
+        ctx.lineWidth = 1; // thickness in pixels
         ctx.stroke();
         ctx.restore();
     }
@@ -173,13 +177,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let steering = new position(desired.x - anom.velocity.x, desired.y - anom.velocity.y);
             steering = fastNormalize2D(steering);
-            steering = fastMultiplyVector(steering, .001)
+            steering = fastMultiplyVector(steering, .003)
 
 
 
 
             let normVelo = fastNormalize2D(anom.velocity);
-            normVelo = fastMultiplyVector(normVelo, .4)
+            normVelo = fastMultiplyVector(normVelo, .3)
 
             anom.velocity.x = normVelo.x + steering.x;
             anom.velocity.y = normVelo.y + steering.y;
@@ -210,8 +214,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function resizeCanvas() {
         const side = Math.max(window.innerWidth, window.innerHeight);
-        canvas.width = side;
-        canvas.height = side;
         canvas.style.width = side + 'px';
         canvas.style.height = side + 'px';
         draw(0);
