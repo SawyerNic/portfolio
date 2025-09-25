@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const v = new velocity(getRandomArbitrary(.2, 4) * randomPositiveOrNegative(), getRandomArbitrary(.2, 4) * randomPositiveOrNegative());
             const a = new anomoly(p, d, v, getRandomArbitrary(minArcSize, maxArcSize));
             a.target = new position(getRandomArbitrary(100, canvas.width - 200), getRandomArbitrary(100, canvas.height - 200))
-            a.color = `hsl(${Math.floor(290 - getRandomArbitrary(0, 110))}, 100%, ${Math.floor(28 - getRandomArbitrary(0, 22))}%)`;
+            a.color = `hsl(${Math.floor(285 - getRandomArbitrary(0, 110))}, 100%, ${Math.floor(28 - getRandomArbitrary(0, 22))}%)`;
             anomolies.push(a);
         }
 
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ctx.moveTo(sx, sy);
         ctx.lineTo(ex, ey);
         ctx.strokeStyle = color;
-        ctx.lineWidth = 4; // thickness in pixels
+        ctx.lineWidth = 2; // thickness in pixels
         ctx.stroke();
         ctx.restore();
     }
@@ -145,6 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const ctx = canvas.getContext('2d');
 
     const draw = (elapsed) => {
+
         // loop through all of the anomolies and adjust the direction
 
         // Background
@@ -196,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             drawSplotch(px, py, anom.size, anom.color);
 
-            drawLine(px, py, px + anom.velocity.x, py + anom.velocity.y, 'red');
+            drawLine(px, py, px + (anom.velocity.x*100), py + (anom.velocity.y*100), 'white');
 
 
 
