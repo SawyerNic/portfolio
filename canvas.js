@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let desired = new position(anom.target.x - anom.position.x, anom.target.y - anom.position.y);
 
             if (fastMagnitude2D(desired) < 1) {
-                anom.target = new position(getRandomArbitrary(100, canvas.width - 200), getRandomArbitrary(100, canvas.height - 200))
+                anom.target = new position(getRandomArbitrary(0, canvas.width), getRandomArbitrary(0, canvas.height))
             }
 
             drawDot(anom.target.x, anom.target.y);
