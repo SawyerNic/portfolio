@@ -1,13 +1,15 @@
 
 let anomolies = [];
-let animationSpeed = .0008;
+let animationSpeed = .2;
 const anomolyCount = 5;
 let maxArcSize = 600;
 let minArcSize = 250;
-let maxOpacity = 1;
+let maxOpacity = .8;
 let minOpacity = .3;
 let colorRange = 30;
-let canvasSize = 800;
+let canvasSize = 1000;
+let steerStrength = 0.003;
+
 
 
 class position {
@@ -83,15 +85,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const canvas = document.getElementById('myCanvas');
 
     const max = Math.max(window.innerWidth, window.innerHeight);
-    
+
 
     const side = canvasSize;
 
-    canvas.width = (window.innerWidth/max)*side;
-    canvas.height = (window.innerHeight/max)*side;
+    canvas.width = (window.innerWidth / max) * side;
+    canvas.height = (window.innerHeight / max) * side;
 
     canvas.style.width = window.innerWidth + 'px';
-    canvas.style.height =window.innerHeight + 'px';
+    canvas.style.height = window.innerHeight + 'px';
 
 
 
@@ -103,36 +105,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const v = new velocity(getRandomArbitrary(.2, 4) * randomPositiveOrNegative(), getRandomArbitrary(.2, 4) * randomPositiveOrNegative());
             const a = new anomoly(p, d, v, getRandomArbitrary(minArcSize, maxArcSize));
             a.target = new position(getRandomArbitrary(0, canvas.width), getRandomArbitrary(0, canvas.height))
-            a.color = `hsl(${Math.floor(285 - getRandomArbitrary(0, 110))}, 100%, ${Math.floor(28 - getRandomArbitrary(0, 22))}%)`;
+            a.color = `hsl(${Math.floor(285 - getRandomArbitrary(0, 110))}, 65%, ${Math.floor(28 - getRandomArbitrary(0, 22))}%)`;
             anomolies.push(a);
         }
 
     }
 
-
     console.log(anomolies);
-
-    function drawDot(x, y) {
-        // Draw the edge dot
-        ctx.beginPath();
-        ctx.arc(x, y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'white';
-        ctx.fill();
-        ctx.closePath();
-    }
-
-
-
-    let drawLine = (sx, sy, ex, ey, color) => {
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(sx, sy);
-        ctx.lineTo(ex, ey);
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 1; // thickness in pixels
-        ctx.stroke();
-        ctx.restore();
-    }
 
     let drawSplotch = (x, y, size, color) => {
         let grad = ctx.createRadialGradient(x, y, 0, x, y, size);
@@ -152,80 +131,69 @@ document.addEventListener('DOMContentLoaded', function () {
     const ctx = canvas.getContext('2d');
 
     const draw = (elapsed) => {
-
-        // loop through all of the anomolies and adjust the direction
-
         // Background
         ctx.fillStyle = 'hsl(242, 100.00%, 5.70%)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.globalCompositeOperation = 'screen'; // or 'multiply', 'screen', etc.
+        ctx.globalCompositeOperation = 'screen';
 
-        anomolies.forEach(anom => {
+        for (let i = 0; i < anomolies.length; i++) {
+            const anom = anomolies[i];
 
+            // Calculate desired vector and distance to target
+            const dx = anom.target.x - anom.position.x;
+            const dy = anom.target.y - anom.position.y;
+            const distSq = dx * dx + dy * dy;
 
-            // desired position
-            let desired = new position(anom.target.x - anom.position.x, anom.target.y - anom.position.y);
-
-            if (fastMagnitude2D(desired) < 1) {
-                anom.target = new position(getRandomArbitrary(0, canvas.width), getRandomArbitrary(0, canvas.height))
+            // If close to target, pick a new one
+            if (distSq < 1) {
+                anom.target.x = getRandomArbitrary(0, canvas.width);
+                anom.target.y = getRandomArbitrary(0, canvas.height);
             }
 
-            drawDot(anom.target.x, anom.target.y);
+            // Fast normalize desired vector
+            let mag = Math.sqrt(distSq) || 1;
+            const desiredX = dx / mag;
+            const desiredY = dy / mag;
 
+            // Steering = desired - velocity
+            const steerX = desiredX - anom.velocity.x;
+            const steerY = desiredY - anom.velocity.y;
+            mag = Math.sqrt(steerX * steerX + steerY * steerY) || 1;
+            const normSteerX = (steerX / mag) * steerStrength;
+            const normSteerY = (steerY / mag) * steerStrength;
 
+            // Normalize velocity
+            mag = Math.sqrt(anom.velocity.x * anom.velocity.x + anom.velocity.y * anom.velocity.y) || 1;
+            const normVeloX = (anom.velocity.x / mag) * animationSpeed;
+            const normVeloY = (anom.velocity.y / mag) * animationSpeed;
 
+            // Update velocity
+            anom.velocity.x = normVeloX + normSteerX;
+            anom.velocity.y = normVeloY + normSteerY;
 
-            desired = fastNormalize2D(desired);
+            // Update position
+            anom.position.x += normVeloX;
+            anom.position.y += normVeloY;
 
-            let steering = new position(desired.x - anom.velocity.x, desired.y - anom.velocity.y);
-            steering = fastNormalize2D(steering);
-            steering = fastMultiplyVector(steering, .003)
+            // Draw splotch and line with arrow
+            drawSplotch(anom.position.x, anom.position.y, anom.size, anom.color);
+        }
 
-
-
-
-            let normVelo = fastNormalize2D(anom.velocity);
-            normVelo = fastMultiplyVector(normVelo, .3)
-
-            anom.velocity.x = normVelo.x + steering.x;
-            anom.velocity.y = normVelo.y + steering.y;
-
-
-
-            const px = anom.position.x + normVelo.x;
-            const py = anom.position.y + normVelo.y;
-
-
-            anom.position.x = px;
-            anom.position.y = py;
-
-
-
-            drawSplotch(px, py, anom.size, anom.color);
-
-            drawLine(px, py, px + (anom.velocity.x*100), py + (anom.velocity.y*100), 'white');
-
-
-
-
-        })
-
-        // Reset composite mode
         ctx.globalCompositeOperation = 'source-over';
-    }
+    };
 
     function resizeCanvas() {
-            const max = Math.max(window.innerWidth, window.innerHeight);
-    
+        const max = Math.max(window.innerWidth, window.innerHeight);
 
-    const side = canvasSize;
 
-    canvas.width = (window.innerWidth/max)*side;
-    canvas.height = (window.innerHeight/max)*side;
+        const side = canvasSize;
 
-    canvas.style.width = window.innerWidth + 'px';
-    canvas.style.height =window.innerHeight + 'px';
+        canvas.width = (window.innerWidth / max) * side;
+        canvas.height = (window.innerHeight / max) * side;
+
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
     }
 
     window.addEventListener('resize', resizeCanvas);
