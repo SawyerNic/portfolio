@@ -16,23 +16,15 @@
     <link rel="stylesheet" href="style.css">
     <script src="canvas.js"></script>
     <script src="index.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 </head>
 
 <body>
-    <canvas id="myCanvas" style="z-index:-1; width:100%; height:100%; position:fixed; left:0px; top:0px">
+    <canvas id="myCanvas"></canvas>
+    <div id="header">
 
-    </canvas>
-        <div id="header" style="display:flex; width:96vw; overflow:hidden; gap:10px; align-items:center;
-        margin:1vw;
-        border-radius:5em;
-        border:3px solid hsl(0, 0%, 100%, 0.3);
-        background: hsl(0, 0%, 100%, 0.08);
-        backdrop-filter: blur(2px);
-        box-shadow: inset 0 0 8px 2px hsl(0, 0%, 100%, 0.3);">
-        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
-        <div
-            style="position:relative; margin-right:20px; aspect-ratio:1/1; width:160px; height:160px; border-radius:5em; overflow:hidden;">
+        <div class="logo-container">
             <model-viewer id="logo"
                 src="https://rawcdn.githack.com/SawyerNic/portfolio/8fbf7ef97218312f4ee4851be6b908dcc27df6af/models/sawyers-head.glb"
                 alt="3D Logo"
@@ -41,11 +33,11 @@
 
         </div>
 
-        <div style="color:hsla(0, 0%, 100%, 0.6); text-shadow: 1px 1px 3px hsla(0, 0%, 100%, 0.6);">
+        <div>
             <h1 class="google-sans-code" id="typewriter" style="white-space: nowrap;"><span
                     id="typewriter-text"></span><span id="top-typewriter-cursor">|</span></h1>
-            <h2 class="google-sans-code"><span id="label-text"></span><span id="looping-labels"></span><span
-                    id="bottom-typewriter-cursor" style="display:none;">|</span></h2>
+            <h2 class="google-sans-code" style="white-space: nowrap;"><span id="label-text"></span><span
+                    id="looping-labels"></span><span id="bottom-typewriter-cursor" style="display:none;">|</span></h2>
         </div>
 
 
@@ -58,6 +50,15 @@
             <button type="button" class="buttonOne purple">Contact</button>
         </nav>
     </div>
+
+    <div id="About">
+        <h1 class="google-sans-code"> About Me</h1>
+        <div class="glass">
+            <p>im funny</p>
+            <p>im Silly</p>
+        </div>
+    </div>
+
 
     <!-- Login Modal -->
     <div id="loginModal"
@@ -72,46 +73,6 @@
         </div>
     </div>
 
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
-    <h1>h</h1>
 
     <pre id="dbContents"
         style="background:#f4f4f4; max-width:100vw; white-space:pre-wrap; padding:1em; border-radius:8px; margin:2em 0;"></pre>
@@ -211,6 +172,7 @@
                 });
             });
         });
+
     </script>
 </body>
 

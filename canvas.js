@@ -1,6 +1,6 @@
 
 let anomolies = [];
-let animationSpeed = .2;
+let animationSpeed = .3;
 const anomolyCount = 5;
 let maxArcSize = 600;
 let minArcSize = 250;

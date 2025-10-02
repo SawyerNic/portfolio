@@ -2,18 +2,6 @@ body {
   font-size: 16px;
 }
 
-@media (max-width: 768px) {
-  body {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 8px;
-  }
-}
-
 
 :root {
     /* Yellow Theme */
@@ -170,7 +158,73 @@ body {
 
 .google-sans-code {
   font-family: "Google Sans Code", monospace;
-  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  color:hsla(0, 0%, 100%, 0.6);
+  text-shadow: 1px 1px 3px hsla(0, 0%, 100%, 0.6);
+}
+
+#myCanvas {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+}
+
+/* Add this at the end of your CSS file */
+@media (max-width: 1150px) {
+  #header nav {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  body {
+    font-size: 12px;
+  }
+
+  .logo-container {
+    visibility: hidden;
+    width: 6vw;
+  }
+}
+
+#header {
+    display: flex;
+    width: 96vw;
+    overflow: hidden;
+    gap: 10px;
+    align-items: center;
+    margin: 1vw;
+    border-radius: 100px;
+    border: 3px solid hsl(0, 0%, 100%, 0.3);
+    background: hsl(0, 0%, 100%, 0.08);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    box-shadow: inset 0 0 8px 2px hsl(0, 0%, 100%, 0.3);
+}
+
+.glass {
+    border-radius: 50px;
+    border: 3px solid hsl(0, 0%, 100%, 0.3);
+    background: hsl(0, 0%, 100%, 0.08);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    box-shadow: inset 0 0 8px 2px hsl(0, 0%, 100%, 0.3);
+}
+
+.logo-container {
+    position: relative;
+    margin-right: 20px;
+    aspect-ratio: 1/1;
+    width: 9vw;
+    height: 160px;
+    border-radius: 5em;
+}
+
+#About {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
