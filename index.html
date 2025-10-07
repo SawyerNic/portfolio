@@ -27,9 +27,7 @@
         <div class="logo-container">
             <model-viewer id="logo"
                 src="https://rawcdn.githack.com/SawyerNic/portfolio/8fbf7ef97218312f4ee4851be6b908dcc27df6af/models/sawyers-head.glb"
-                alt="3D Logo"
-                style="z-index:1; margin-top:10px; margin-left:40px; margin-right:30px; width:100px; min-width:100px; "
-                auto-rotate rotation-per-second="60deg" disable-zoom></model-viewer>
+                alt="3D Logo" auto-rotate rotation-per-second="60deg" disable-zoom></model-viewer>
 
         </div>
 
@@ -41,21 +39,30 @@
         </div>
 
 
-        <nav
-            style="display:flex; align-items:center; gap:1em; margin-left:auto; margin-right:40px; box-shadow: 0 0 5px 4px rgb(32, 32, 32) inset; background-color:hsl(0, 0%, 93%, .6); border-radius:3em; padding:30px;">
+        <nav class="main-nav">
+            <button type="button" class="buttonOne yellow">About</button>
             <button type="button" class="buttonOne blue">Blog</button>
             <button type="button" class="buttonOne orange">Projects</button>
             <button type="button" class="buttonOne green">Skills</button>
-            <button type="button" class="buttonOne yellow">About</button>
             <button type="button" class="buttonOne purple">Contact</button>
         </nav>
     </div>
 
-    <div id="About">
-        <h1 class="google-sans-code"> About Me</h1>
-        <div class="glass">
-            <p>im funny</p>
-            <p>im Silly</p>
+    <div id="About" class="glass">
+        <h1 class="google-sans-code">About Me</h1>
+        <div class="lists">
+            <div>
+                <h2>Current Focuses</h2>
+                <ul id="currentFocus">
+
+                </ul>
+            </div>
+            <div>
+                <h2>Personal Interests</h2>
+                <ul id="personalInterests">
+                </ul>
+            </div>
+
         </div>
     </div>
 

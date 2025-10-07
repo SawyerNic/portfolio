@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username: user, password: pass })
-        }) 
+        })
             .then(res => {
                 if (!res.ok) throw new Error('Invalid credentials');
                 return res.json();
@@ -40,9 +40,32 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(res => res.json())
         .then(data => {
             document.getElementById('dbContents').textContent = JSON.stringify(data, null, 2);
+
+            let interestsEl = document.getElementById('personalInterests');
+            let focusEl = document.getElementById('currentFocus');
+
+            console.log(data.aboutMe.personalInterests);
+
+            data.aboutMe.currentFocus.forEach(element => {
+                let li = document.createElement('li');
+                li.textContent = element;
+                focusEl.appendChild(li);
+            })
+
+            data.aboutMe.personalInterests.forEach(element => {
+                let li = document.createElement('li');
+                li.textContent = element;
+                interestsEl.appendChild(li);
+
+            });
+
         })
         .catch(err => {
+            console.log(err);
             document.getElementById('dbContents').textContent = 'Error loading data.';
         });
+
+
+
 });
 
