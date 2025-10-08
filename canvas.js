@@ -97,6 +97,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
+
     //populate the anomolies array
     for (let i = 0; i < anomolyCount; i++) {
         for (let j = 0; j < anomolyCount; j++) {
@@ -179,6 +182,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Draw splotch and line with arrow
             drawSplotch(anom.position.x, anom.position.y, anom.size, anom.color);
         }
+
+        
 
         ctx.globalCompositeOperation = 'source-over';
     };
