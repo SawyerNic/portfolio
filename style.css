@@ -169,11 +169,11 @@ body {
   position: relative;
     z-index: 20;
     display: flex;
-    width: 96vw;
+    width: auto;
     overflow: hidden;
     gap: 10px;
     align-items: center;
-    margin: 1vw;
+    margin: 20px;
     border-radius: 100px;
     border: 3px solid hsl(0, 0%, 100%, 0.3);
     background: hsl(0, 0%, 100%, 0.08);
@@ -212,6 +212,10 @@ body {
   position: fixed;
   left: 0px;
   top: 0px;
+}
+
+#projectSection {
+  margin-top: 30px;
 }
 
 /* Add this at the end of your CSS file */
@@ -292,5 +296,5 @@ ul {
 
 .list{
   margin: 1vw;
-  min-width: 200x;
+  min-width: 200px;
 }

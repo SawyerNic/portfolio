@@ -59,6 +59,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             });
 
+            data.projects.forEach(element => {
+                let projectDiv = document.createElement('div');
+                
+            })
+
         })
         .catch(err => {
             console.log(err);
