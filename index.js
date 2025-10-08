@@ -60,8 +60,15 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             data.projects.forEach(element => {
-                let projectDiv = document.createElement('div');
-                
+                const template = document.getElementById('project-template');
+                const clone = template.content.cloneNode(true);
+
+                clone.querySelector('.project-title').textContent = element.name;
+                clone.querySelector('.project-description').textContent = element.description;
+                clone.querySelector('.project-image').src = element.imgLink; // your image link
+                clone.querySelector('.project-image').alt = element.title;
+
+                document.getElementById('projects').appendChild(clone);
             })
 
         })
