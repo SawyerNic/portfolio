@@ -1,0 +1,7 @@
+
+projects:
+- an image or gif link (preferably gif) served from raw cdn
+- a short one sentence description
+- the technologies used to create the projects
+- a link to the source code
+- a link to the working website
