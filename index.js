@@ -65,8 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 clone.querySelector('.project-title').textContent = element.name;
                 clone.querySelector('.project-description').textContent = element.description;
-                clone.querySelector('.project-image').src = element.imgLink; // your image link
-                clone.querySelector('.project-image').alt = element.title;
+                clone.querySelector('.video').src = element.videoLink; // your image link
 
                 document.getElementById('projects').appendChild(clone);
             })
