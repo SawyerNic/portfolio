@@ -4,7 +4,7 @@ body {
 }
 
 :root {
-    /* Yellow Theme */
+  /* Yellow Theme */
   --yellow-bg: hsla(48, 100%, 94%, 0.4);
   --yellow-bg-hover: hsla(48, 100%, 86%, 0.4);
   --yellow-bg-active: hsla(48, 100%, 80%, 0.4);
@@ -160,26 +160,26 @@ body {
   font-family: "Google Sans Code", monospace;
   font-weight: 400;
   font-style: normal;
-  color:hsla(0, 0%, 100%, 0.6);
+  color: hsla(0, 0%, 100%, 0.6);
   text-shadow: 1px 1px 3px hsla(0, 0%, 100%, 0.6);
 }
 
 #header {
-  top:10px;
+  top: 10px;
   position: relative;
-    z-index: 20;
-    display: flex;
-    width: auto;
-    overflow: hidden;
-    gap: 10px;
-    align-items: center;
-    margin: 20px;
-    border-radius: 100px;
-    border: 3px solid hsl(0, 0%, 100%, 0.3);
-    background: hsl(0, 0%, 100%, 0.08);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-    box-shadow: inset 0 0 8px 2px hsl(0, 0%, 100%, 0.3);
+  z-index: 20;
+  display: flex;
+  width: auto;
+  overflow: hidden;
+  gap: 10px;
+  align-items: center;
+  margin: 20px;
+  border-radius: 100px;
+  border: 3px solid hsl(0, 0%, 100%, 0.3);
+  background: hsl(0, 0%, 100%, 0.08);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0 0 8px 2px hsl(0, 0%, 100%, 0.3);
 }
 
 
@@ -193,16 +193,16 @@ body {
   width: fit-content;
 }
 
-#About > * {
+#About>* {
   font-family: "Google Sans Code", monospace;
   font-weight: 400;
   font-style: normal;
-  color:hsla(0, 0%, 100%, 0.6);
+  color: hsla(0, 0%, 100%, 0.6);
   text-shadow: 1px 1px 3px hsla(0, 0%, 100%, 0.6);
 }
 
 #margin {
-  margin:15px;
+  margin: 15px;
 }
 
 #myCanvas {
@@ -235,48 +235,44 @@ body {
   }
 }
 
-
-
 .glass {
-    width: auto;
-    border-radius: 50px;
-    border: 3px solid hsl(0, 0%, 100%, 0.3);
-    background: hsl(0, 0%, 100%, 0.08);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-    box-shadow: inset 0 0 8px 2px hsl(0, 0%, 100%, 0.3);
+  width: auto;
+  border-radius: 50px;
+  border: 3px solid hsl(0, 0%, 100%, 0.3);
+  background: hsl(0, 0%, 100%, 0.08);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0 0 8px 2px hsl(0, 0%, 100%, 0.3);
 }
 
 .logo-container {
-    position: relative;
-    margin-right: 20px;
-    aspect-ratio: 1/1;
-    width: 9vw;
-    height: 160px;
-    border-radius: 5em;
+  position: relative;
+  margin-right: 20px;
+  aspect-ratio: 1/1;
+  width: 9vw;
+  height: 160px;
+  border-radius: 5em;
 }
 
-
-
 .main-nav {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    margin-left: auto;
-    margin-right: 40px;
-    box-shadow: 0 0 5px 4px rgb(32, 32, 32) inset;
-    background-color: hsl(0, 0%, 93%, .6);
-    border-radius: 3em;
-    padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-left: auto;
+  margin-right: 40px;
+  box-shadow: 0 0 5px 4px rgb(32, 32, 32) inset;
+  background-color: hsl(0, 0%, 93%, .6);
+  border-radius: 3em;
+  padding: 30px;
 }
 
 #logo {
-    z-index: 1;
-    margin-top: 10px;
-    margin-left: 40px;
-    margin-right: 30px;
-    width: 100px;
-    min-width: 100px;
+  z-index: 1;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-right: 30px;
+  width: 100px;
+  min-width: 100px;
 }
 
 .lists {
@@ -294,7 +290,34 @@ ul {
   padding-left: 20px;
 }
 
-.list{
+.list {
   margin: 1vw;
   min-width: 200px;
+}
+
+#projects {
+  margin-top: 3vw;
+}
+
+.project {
+  min-width:250px;
+  max-width: 30vw;
+  margin: auto;
+}
+
+#ph {
+  margin: 30px auto;
+  text-align: center;
+}
+
+video {
+  width: 100%;
+}
+
+*>.project {
+  font-family: "Google Sans Code", monospace;
+  font-weight: 400;
+  font-style: normal;
+  color: hsla(0, 0%, 100%, 0.6);
+  text-shadow: 1px 1px 3px hsla(0, 0%, 100%, 0.6);
 }
