@@ -300,7 +300,7 @@ ul {
 }
 
 .project {
-  min-width:250px;
+  min-width: 250px;
   max-width: 30vw;
   margin: auto;
 }
@@ -318,6 +318,12 @@ video {
   font-family: "Google Sans Code", monospace;
   font-weight: 400;
   font-style: normal;
+  color: hsla(0, 0%, 100%, 0.6);
+  text-shadow: 1px 1px 3px hsla(0, 0%, 100%, 0.6);
+  margin-bottom: 20px;
+}
+
+a:is(:link, :visited, :hover, :active, :focus, :focus-visible) {
   color: hsla(0, 0%, 100%, 0.6);
   text-shadow: 1px 1px 3px hsla(0, 0%, 100%, 0.6);
 }
