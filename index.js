@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('http://localhost:3000/api/contents')
         .then(res => res.json())
         .then(data => {
-            document.getElementById('dbContents').textContent = JSON.stringify(data, null, 2);
 
             let interestsEl = document.getElementById('personalInterests');
             let focusEl = document.getElementById('currentFocus');
@@ -66,7 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 clone.querySelector('.project-title').textContent = element.name;
                 clone.querySelector('.project-description').textContent = element.description;
                 clone.querySelector('.video').src = element.videoLink; // your image link
-
+                clone.querySelector('.source-code').href = element.sourceCode;
+                clone.querySelector('.live-site').href = element.liveSite;
                 document.getElementById('projects').appendChild(clone);
             })
 
