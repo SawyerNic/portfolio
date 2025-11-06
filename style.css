@@ -36,13 +36,16 @@ body {
 
 
 #About {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3vw;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 3vw 30px;
   width: fit-content;
+}
+
+.center-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 #About>* {
@@ -51,10 +54,6 @@ body {
   font-style: normal;
   color: hsla(0, 0%, 100%, 0.6);
   text-shadow: 1px 1px 3px hsla(0, 0%, 100%, 0.6);
-}
-
-#margin {
-  margin: 15px;
 }
 
 #myCanvas {
@@ -116,10 +115,12 @@ body {
 }
 
 .lists {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin: auto 20px;
+  width: auto;
 }
 
 li {
