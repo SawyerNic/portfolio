@@ -21,8 +21,8 @@ body {
   position: relative;
   z-index: 20;
   display: flex;
+  flex-wrap: wrap;
   width: auto;
-  overflow: hidden;
   gap: 10px;
   align-items: center;
   margin: 20px;
@@ -92,14 +92,18 @@ body {
 
 .main-nav {
   display: flex;
+  min-width: 200px;
   align-items: center;
   gap: 1em;
   margin-left: auto;
   margin-right: 40px;
-  box-shadow: 0 0 5px 4px rgb(32, 32, 32) inset;
-  background-color: hsl(0, 0%, 93%, .6);
-  border-radius: 3em;
-  padding: 30px;
+
+}
+
+#icons {
+  font-size: 2em;
+  color: hsla(0, 0%, 100%, 0.6);
+  text-shadow: 1px 1px 3px hsla(0, 0%, 100%, 0.6);
 }
 
 #logo {
