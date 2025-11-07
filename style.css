@@ -77,7 +77,7 @@ body {
 
   #header #icons {
     margin: 0;
-    margin-bottom:30px;
+    margin-bottom: 30px;
     align-self: center;
   }
 
@@ -89,6 +89,10 @@ body {
     font-size: 1rem
   }
 
+  #header-text {
+    margin-bottom: 20px;
+    margin-top: -20px;
+  }
 }
 
 .glass {
@@ -139,6 +143,8 @@ body {
   min-width: 100px;
 }
 
+
+
 .lists {
   display: inline-flex;
   flex-direction: row;
@@ -163,6 +169,8 @@ ul {
 
 #projects {
   margin-top: 3vw;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 .project {
