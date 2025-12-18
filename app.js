@@ -15,7 +15,6 @@ const app = express();
 app.use(cors());
 app.use(favicon(path.join(__dirname, 'favicon.ico')))
 
-
 // Connect to database
 mongoose.connect(dbURI, { useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
@@ -28,13 +27,10 @@ mongoose.connection.on('error', err => {
     console.error('MongoDB connection error:', err);
 });
 
-
-
 const Content = mongoose.model('Collection', new mongoose.Schema({}, { strict: false }), 'Content');
 
 app.use(express.json());
 app.use(cors());
-app.use(express.json()); // <-- Add this line here!
 
 app.get('/api/collections', async (req, res) => {
     try {
@@ -55,8 +51,6 @@ app.get('/api/contents', async (req, res) => {
     const doc = await Content.findOne(); // Adjust query as needed
     res.json(doc);
 });
-
-
 
 app.post('/api/contents', async (req, res) => {
     try {
