@@ -176,7 +176,7 @@ ul {
 .project {
   min-width: 250px;
   max-width: 30vw;
-  margin: auto;
+  margin: 30px;
 }
 
 #ph {
@@ -200,4 +200,22 @@ video {
 a:is(:link, :visited, :hover, :active, :focus, :focus-visible) {
   color: hsla(0, 0%, 100%, 0.6);
   text-shadow: 1px 1px 3px hsla(0, 0%, 100%, 0.6);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
